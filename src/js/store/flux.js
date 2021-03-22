@@ -1,6 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			characters: [],
+			planets: [],
+			favorites: [],
 			demo: [
 				{
 					title: "FIRST",
@@ -19,10 +22,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			loadPlanets: async () => {
+				const url = "https://www.swapi.tech/api/planets/";
+				const response = await fetch(url);
+				const data = await response.json();
+
+				const fullDataPlanet = data.results.map(async (item, index, myArry) => {
+					let allPlanetData = await fetch(item.url);
+					return allPlanetData.json();
+				});
+				let finalDataPlanet = await Promise.all(fullDataPlanet);
+				setStore({ planets: finalDataPlanet });
+			},
+			loadCharacters: async () => {
+				const url = "https://www.swapi.tech/api/people/";
+				const response = await fetch(url);
+				const data = await response.json();
+
+				const fullDataCharacter = data.results.map(async (item, index, myArry) => {
+					let allCharacterData = await fetch(item.url);
+					return allCharacterData.json();
+				});
+				let finalDataCharacter = await Promise.all(fullDataCharacter);
+				setStore({ characters: finalDataCharacter });
 			},
 			changeColor: (index, color) => {
 				//get the store

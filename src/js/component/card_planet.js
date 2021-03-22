@@ -1,25 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { BsHeart } from "react-icons/bs";
+import PropTypes from "prop-types";
 
-export function Cards() {
+const CardPlanet = props => {
 	return (
-		<div className="col-sm mt-2">
+		<div className="col-sm-3 mt-2">
 			<div className="card">
 				<img
 					className="card/-img-top w-100"
-					src="https://lumiere-a.akamaihd.net/v1/images/skywalker-lightsaber-main_e9de18dc.jpeg?region=0%2C134%2C1281%2C720&width=1200"
-					alt="Card image cap"
+					src="https://starwarsblog.starwars.com/wp-content/uploads/2016/09/5Tatooine-1.jpeg"
+					alt="Card image planets"
 				/>
 				<div className="card-body">
 					<div>
 						<div className="d-flex justify-content-center">
-							<h5 className="card-title">Card title</h5>
+							<h5 className="card-title">{props.name}</h5>
 						</div>
-						<div className="d-flex flex-column">
-							<p>Gender:</p>
-							<p>Hair Color:</p>
-							<p>Eye Color:</p>
+						<div className="d-flex flex-column p-0">
+							<p className="p-0">
+								Population: {props.population}
+								<br />
+								Terrain: {props.terrain}
+							</p>
 						</div>
 					</div>
 
@@ -39,4 +41,13 @@ export function Cards() {
 			</div>
 		</div>
 	);
-}
+};
+
+CardPlanet.propTypes = {
+	uid: PropTypes.number,
+	name: PropTypes.string,
+	population: PropTypes.string,
+	terrain: PropTypes.string
+};
+
+export default CardPlanet;

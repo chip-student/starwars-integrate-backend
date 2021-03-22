@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 
 export const Navbar = () => {
@@ -8,7 +8,7 @@ export const Navbar = () => {
 			<nav className="navbar navbar-expand-lg navbar-light">
 				<div className="d-flex w-100 bd-highlight">
 					<div className="w-100 bd-highlight">
-						<Link className="navbar-brand active">
+						<Link to="/" className="navbar-brand active">
 							<img
 								src="https://static-mh.content.disney.io/starwars/assets/navigation/sw_logo_stacked-336c62367939.png"
 								className="text-white w-25"
