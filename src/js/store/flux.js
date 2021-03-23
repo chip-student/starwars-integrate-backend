@@ -24,11 +24,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			loadPlanets: async () => {
 				const url = "https://www.swapi.tech/api/planets/";
-				const response = await fetch(url);
+				const response = await fetch(url, {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
 				const data = await response.json();
 
 				const fullDataPlanet = data.results.map(async (item, index, myArry) => {
-					let allPlanetData = await fetch(item.url);
+					let allPlanetData = await fetch(item.url, {
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
 					return allPlanetData.json();
 				});
 				let finalDataPlanet = await Promise.all(fullDataPlanet);
@@ -36,11 +46,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			loadCharacters: async () => {
 				const url = "https://www.swapi.tech/api/people/";
-				const response = await fetch(url);
+				const response = await fetch(url, {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				});
 				const data = await response.json();
 
 				const fullDataCharacter = data.results.map(async (item, index, myArry) => {
-					let allCharacterData = await fetch(item.url);
+					let allCharacterData = await fetch(item.url, {
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
 					return allCharacterData.json();
 				});
 				let finalDataCharacter = await Promise.all(fullDataCharacter);
@@ -59,6 +79,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			addFavorites: name => {
+				setStore({ favorites: name });
 			}
 		}
 	};

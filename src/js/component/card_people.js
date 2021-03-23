@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { BsHeart } from "react-icons/bs";
 import PropTypes from "prop-types";
 
+import { Context } from "../store/appContext";
+
 const CardPeople = props => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="col-sm-3 mt-2">
 			<div className="card">
@@ -29,12 +33,18 @@ const CardPeople = props => {
 
 					<div className="d-flex justify-content-between">
 						<div>
-							<button type="button" className="btn btn-outline-primary">
-								Learn more!
-							</button>
+							<Link to={"/personprofile/" + props.id}>
+								<button type="button" className="btn btn-outline-primary">
+									Learn more!
+								</button>
+							</Link>
 						</div>
 						<div>
-							<button type="button" className="btn btn-outline-warning">
+							<button
+								type="button"
+								className="btn btn-outline-warning"
+								aria-hidden="true"
+								onClick={() => actions.addFavorites(props.name)}>
 								<BsHeart />
 							</button>
 						</div>
@@ -46,7 +56,7 @@ const CardPeople = props => {
 };
 
 CardPeople.propTypes = {
-	uid: PropTypes.number,
+	id: PropTypes.string,
 	name: PropTypes.string,
 	gender: PropTypes.string,
 	hairColor: PropTypes.string,

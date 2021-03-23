@@ -11,7 +11,9 @@ export const Home = () => {
 	return (
 		<div>
 			<div>
-				<h2 className="text-white">Characters</h2>
+				<div className="mt-3 mb-3">
+					<h2 className="text-white">Characters</h2>
+				</div>
 				<div className="row">
 					{store.characters.map((item, index, myArry) => {
 						// console.log(myArry);
@@ -19,6 +21,7 @@ export const Home = () => {
 						return (
 							<CardPeople
 								key={item.result.uid}
+								id={item.result.uid}
 								name={item.result.properties.name}
 								gender={item.result.properties.gender}
 								hairColor={item.result.properties.hair_color}
@@ -29,14 +32,17 @@ export const Home = () => {
 				</div>
 			</div>
 			<div>
-				<h2 className="text-white">Planets</h2>
+				<div className="mt-3 mb-3">
+					<h2 className="text-white">Planets</h2>
+				</div>
 				<div className="row">
 					{store.planets.map((item, index, myArry) => {
-						console.log(myArry);
+						// console.log(myArry);
 						// console.log(item.result.properties.name);
 						return (
 							<CardPlanet
 								key={item.result.uid}
+								id={item.result.uid}
 								name={item.result.properties.name}
 								population={item.result.properties.population}
 								terrain={item.result.properties.terrain}
@@ -45,6 +51,9 @@ export const Home = () => {
 					})}
 				</div>
 			</div>
+			{/* <div>
+				<Person_Profile />
+			</div> */}
 		</div>
 	);
 };

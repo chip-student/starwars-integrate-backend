@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Person_Profile } from "./views/person_profile";
+import { PersonProfile } from "./views/PersonProfile";
+import { PlanetProfile } from "./views/PlanetProfile";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
@@ -32,6 +33,12 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
+						</Route>
+						<Route exact path="/personprofile/:id">
+							<PersonProfile />
+						</Route>
+						<Route exact path="/planetprofile/:id">
+							<PlanetProfile />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />

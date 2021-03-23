@@ -1,5 +1,6 @@
 import React from "react";
 import { BsHeart } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const CardPlanet = props => {
@@ -27,9 +28,11 @@ const CardPlanet = props => {
 
 					<div className="d-flex justify-content-between">
 						<div>
-							<button type="button" className="btn btn-outline-primary">
-								Learn more!
-							</button>
+							<Link to={"/planetprofile/" + props.id}>
+								<button type="button" className="btn btn-outline-primary">
+									Learn more!
+								</button>
+							</Link>
 						</div>
 						<div>
 							<button type="button" className="btn btn-outline-warning">
@@ -44,7 +47,7 @@ const CardPlanet = props => {
 };
 
 CardPlanet.propTypes = {
-	uid: PropTypes.number,
+	id: PropTypes.string,
 	name: PropTypes.string,
 	population: PropTypes.string,
 	terrain: PropTypes.string
