@@ -39,7 +39,7 @@ export const Navbar = () => {
 														<Dropdown.Item key={index} href="#">
 															{item}
 															<i
-																className="fas fa-trash-alt pl-1"
+																className="fas fa-trash-alt pl-1 float-right"
 																onClick={() => actions.deleteFavorites(index)}
 															/>
 														</Dropdown.Item>

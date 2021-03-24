@@ -45,7 +45,7 @@ const CardPeople = props => {
 								className="btn btn-outline-warning"
 								aria-hidden="true"
 								onClick={() => actions.addFavorites(props.name)}>
-								<BsHeart />
+								<BsHeart aria-pressed="true" />
 							</button>
 						</div>
 					</div>
