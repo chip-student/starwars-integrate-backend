@@ -51,9 +51,6 @@ export const Home = () => {
 					})}
 				</div>
 			</div>
-			{/* <div>
-				<Person_Profile />
-			</div> */}
 		</div>
 	);
 };

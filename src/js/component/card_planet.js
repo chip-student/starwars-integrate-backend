@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsHeart } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
+import { Context } from "../store/appContext";
+
 const CardPlanet = props => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="col-sm-3 mt-2">
 			<div className="card">
@@ -35,7 +38,10 @@ const CardPlanet = props => {
 							</Link>
 						</div>
 						<div>
-							<button type="button" className="btn btn-outline-warning">
+							<button
+								type="button"
+								className="btn btn-outline-warning"
+								onClick={() => actions.addFavorites(props.name)}>
 								<BsHeart />
 							</button>
 						</div>

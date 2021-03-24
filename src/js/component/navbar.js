@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 
+import PropTypes from "prop-types";
+
 import { Context } from "../store/appContext";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
-
 	return (
 		<div>
 			<nav className="navbar navbar-expand-lg navbar-light">
@@ -25,18 +26,25 @@ export const Navbar = () => {
 								<div className="dropdown">
 									<Dropdown>
 										<Dropdown.Toggle variant="primary btn-sm" id="dropdown-basic">
-											Favorites <span className="badge badge-light">0</span>
+											Favorites{" "}
+											<span className="badge badge-light">
+												{store.favorites && store.favorites.length}
+											</span>
 										</Dropdown.Toggle>
 
 										<Dropdown.Menu style={{ backgroundColor: "#73a47" }}>
-											{store.favorites.map((item, index, myArray) => {
-												return (
-													<Dropdown.Item key={index} href="#">
-														{item}
-														<i className="fas fa-trash-alt pl-1" />
-													</Dropdown.Item>
-												);
-											})}
+											{store.favorites &&
+												store.favorites.map((item, index, myArray) => {
+													return (
+														<Dropdown.Item key={index} href="#">
+															{item}
+															<i
+																className="fas fa-trash-alt pl-1"
+																onClick={() => actions.deleteFavorites(index)}
+															/>
+														</Dropdown.Item>
+													);
+												})}
 										</Dropdown.Menu>
 									</Dropdown>
 								</div>

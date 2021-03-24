@@ -14,7 +14,6 @@ export const PersonProfile = () => {
 			<div className="col-12 mt-3">
 				{store.characters.map(item => {
 					if (item.result.uid === id) {
-						console.log(item.result.uid);
 						return (
 							<div key={item.uid} className="card">
 								<div className="card-horizontal">
@@ -39,20 +38,6 @@ export const PersonProfile = () => {
 											pleas for help. But his solitude would be interrupted – and Luke Skywalker
 											had one final, momentous role to play in the struggle between good and evil.
 										</p>
-										{/* <p>
-											Height <br />
-											{item.result.properties.height}
-										</p>
-										<p>
-											Skin Color
-											<br />
-											{item.result.properties.skin_color}
-										</p>
-										<p>
-											Eye Color
-											<br />
-											{item.result.properties.eye_color}
-										</p> */}
 									</div>
 								</div>
 

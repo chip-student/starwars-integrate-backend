@@ -81,7 +81,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 			addFavorites: name => {
-				setStore({ favorites: name });
+				//get the store
+				const store = getStore();
+
+				store.favorites.push(name);
+
+				setStore({ favorites: store.favorites });
+
+				// console.log(store.favorites);
+			},
+			deleteFavorites: id => {
+				console.log(id);
+				//get the store
+				const store = getStore();
+
+				const newList = store.favorites.filter(function(currentValue, index) {
+					return id !== index;
+				});
+				setStore({ favorites: newList });
 			}
 		}
 	};
