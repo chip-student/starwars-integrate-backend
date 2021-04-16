@@ -32,21 +32,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				const data = await response.json();
 
-				// const fullDataPlanet = data.results.map(async (item, index, myArry) => {
-				// 	let allPlanetData = await fetch(item.url, {
-				// 		method: "GET",
-				// 		headers: {
-				// 			"Content-Type": "application/json"
-				// 		}
-				// 	});
-				// 	return allPlanetData.json();
-				// });
-				// let finalDataPlanet = await Promise.all(fullDataPlanet);
-				// setStore({ planets: finalDataPlanet });
+				console.log(">>DATA PLANETS>>", data);
+
 				setStore({ planets: data });
 			},
 			loadCharacters: async () => {
 				const url = "https://3000-gray-cattle-bu6ry8c3.ws-us03.gitpod.io/people/";
+
 				const response = await fetch(url, {
 					method: "GET",
 					headers: {
@@ -54,18 +46,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				});
 				const data = await response.json();
-
-				// const fullDataCharacter = data.results.map(async (item, index, myArry) => {
-				// 	let allCharacterData = await fetch(item.url, {
-				// 		method: "GET",
-				// 		headers: {
-				// 			"Content-Type": "application/json"
-				// 		}
-				// 	});
-				// 	return allCharacterData.json();
-				// });
-				// let finalDataCharacter = await Promise.all(fullDataCharacter);
-				// setStore({ characters: finalDataCharacter });
+				console.log(">>DATA PEOPLE>>", data);
 				setStore({ characters: data });
 			},
 			changeColor: (index, color) => {
@@ -93,7 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// console.log(store.favorites);
 			},
 			deleteFavorites: id => {
-				console.log(id);
+				// console.log(id);
 				//get the store
 				const store = getStore();
 

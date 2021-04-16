@@ -13,9 +13,12 @@ export const PersonProfile = () => {
 		<div className="row">
 			<div className="col-12 mt-3">
 				{store.characters.map(item => {
-					if (item.result.uid === id) {
+					// console.log(item.id);
+					// console.log("<<ID-People>> " + id);
+					if (item.id === parseInt(id, 10)) {
+						console.log("existe");
 						return (
-							<div key={item.uid} className="card">
+							<div key={item.id} className="card">
 								<div className="card-horizontal">
 									<div className="img-square-wrapper mt-2">
 										<img
@@ -25,7 +28,7 @@ export const PersonProfile = () => {
 										/>
 									</div>
 									<div className="card-body">
-										<h4 className="card-title">{item.result.properties.name}</h4>
+										<h4 className="card-title">{item.name}</h4>
 
 										<p>
 											Luke Skywalker was a Tatooine farmboy who rose from humble beginnings to
@@ -46,39 +49,39 @@ export const PersonProfile = () => {
 									<div className="p-2 ml-2 text-danger">
 										<p>
 											Name <br />
-											{item.result.properties.name}
+											{item.name}
 										</p>
 									</div>
 									<div className="p-2 text-danger">
 										<p>
 											Bith Year <br />
-											{item.result.properties.birth_year}
+											{item.birth_year}
 										</p>
 									</div>
 									<div className="p-2 text-danger">
 										<p>
 											Gender <br />
-											{item.result.properties.gender}
+											{item.gender}
 										</p>
 									</div>
 									<div className="p-2 text-danger">
 										<p>
 											Height <br />
-											{item.result.properties.height}
+											{item.height}
 										</p>
 									</div>
 									<div className="p-2 text-danger">
 										<p>
 											Skin Color
 											<br />
-											{item.result.properties.skin_color}
+											{item.skin_color}
 										</p>
 									</div>
 									<div className="p-2 mr-2 text-danger ">
 										<p>
 											Eye Color
 											<br />
-											{item.result.properties.eye_color}
+											{item.eye_color}
 										</p>
 									</div>
 								</div>

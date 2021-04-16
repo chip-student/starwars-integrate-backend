@@ -13,10 +13,10 @@ export const PlanetProfile = () => {
 		<div className="row">
 			<div className="col-12 mt-3">
 				{store.planets.map(item => {
-					if (item.result.uid === id) {
-						// console.log(item.result.uid);
+					if (item.id === parseInt(id, 10)) {
+						// console.log(item.result.id);
 						return (
-							<div key={item.uid} className="card">
+							<div key={item.id} className="card">
 								<div className="card-horizontal">
 									<div className="img-square-wrapper mt-2">
 										<img
@@ -26,7 +26,7 @@ export const PlanetProfile = () => {
 										/>
 									</div>
 									<div className="card-body">
-										<h4 className="card-title">{item.result.properties.name}</h4>
+										<h4 className="card-title">{item.name}</h4>
 
 										<p>
 											Tatooine is harsh desert world orbiting twin suns in the galaxy’s Outer Rim.
@@ -46,39 +46,39 @@ export const PlanetProfile = () => {
 									<div className="p-2 ml-2 text-danger">
 										<p>
 											Name <br />
-											{item.result.properties.name}
+											{item.name}
 										</p>
 									</div>
 									<div className="p-2 text-danger">
 										<p>
 											Climate <br />
-											{item.result.properties.climate}
+											{item.climate}
 										</p>
 									</div>
 									<div className="p-2 text-danger">
 										<p>
 											Population <br />
-											{item.result.properties.population}
+											{item.population}
 										</p>
 									</div>
 									<div className="p-2 text-danger">
 										<p>
 											Orbital Period <br />
-											{item.result.properties.orbital_period}
+											{item.orbital_period}
 										</p>
 									</div>
 									<div className="p-2 text-danger">
 										<p>
 											Rotation Period
 											<br />
-											{item.result.properties.rotation_period}
+											{item.rotation_period}
 										</p>
 									</div>
 									<div className="p-2 mr-2 text-danger ">
 										<p>
 											Diameter
 											<br />
-											{item.result.properties.diameter}
+											{item.diameter}
 										</p>
 									</div>
 								</div>

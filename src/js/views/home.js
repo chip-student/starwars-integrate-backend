@@ -18,7 +18,7 @@ export const Home = () => {
 					<div className="row flex-row flex-nowrap overflow-auto">
 						{store.characters.map((item, index, myArry) => {
 							// console.log(myArry);
-							// console.log(item.result.properties.gender);
+							// console.log(item.gender);
 							return (
 								<CardPeople
 									key={item.id}
