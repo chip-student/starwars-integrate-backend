@@ -56,7 +56,7 @@ const CardPeople = props => {
 };
 
 CardPeople.propTypes = {
-	id: PropTypes.string,
+	id: PropTypes.number,
 	name: PropTypes.string,
 	gender: PropTypes.string,
 	hairColor: PropTypes.string,

@@ -53,9 +53,9 @@ const CardPlanet = props => {
 };
 
 CardPlanet.propTypes = {
-	id: PropTypes.string,
+	id: PropTypes.number,
 	name: PropTypes.string,
-	population: PropTypes.string,
+	population: PropTypes.number,
 	terrain: PropTypes.string
 };
 

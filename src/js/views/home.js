@@ -21,12 +21,12 @@ export const Home = () => {
 							// console.log(item.result.properties.gender);
 							return (
 								<CardPeople
-									key={item.result.uid}
-									id={item.result.uid}
-									name={item.result.properties.name}
-									gender={item.result.properties.gender}
-									hairColor={item.result.properties.hair_color}
-									eyeColor={item.result.properties.eye_color}
+									key={item.id}
+									id={item.id}
+									name={item.name}
+									gender={item.gender}
+									hairColor={item.hair_color}
+									eyeColor={item.eye_color}
 								/>
 							);
 						})}
@@ -44,11 +44,11 @@ export const Home = () => {
 							// console.log(item.result.properties.name);
 							return (
 								<CardPlanet
-									key={item.result.uid}
-									id={item.result.uid}
-									name={item.result.properties.name}
-									population={item.result.properties.population}
-									terrain={item.result.properties.terrain}
+									key={item.id}
+									id={item.id}
+									name={item.name}
+									population={item.population}
+									terrain={item.terrain}
 								/>
 							);
 						})}

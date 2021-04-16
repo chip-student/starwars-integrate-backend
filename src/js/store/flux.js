@@ -23,7 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 			loadPlanets: async () => {
-				const url = "https://www.swapi.tech/api/planets/";
+				const url = "https://3000-gray-cattle-bu6ry8c3.ws-us03.gitpod.io/planets/";
 				const response = await fetch(url, {
 					method: "GET",
 					headers: {
@@ -32,20 +32,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				const data = await response.json();
 
-				const fullDataPlanet = data.results.map(async (item, index, myArry) => {
-					let allPlanetData = await fetch(item.url, {
-						method: "GET",
-						headers: {
-							"Content-Type": "application/json"
-						}
-					});
-					return allPlanetData.json();
-				});
-				let finalDataPlanet = await Promise.all(fullDataPlanet);
-				setStore({ planets: finalDataPlanet });
+				// const fullDataPlanet = data.results.map(async (item, index, myArry) => {
+				// 	let allPlanetData = await fetch(item.url, {
+				// 		method: "GET",
+				// 		headers: {
+				// 			"Content-Type": "application/json"
+				// 		}
+				// 	});
+				// 	return allPlanetData.json();
+				// });
+				// let finalDataPlanet = await Promise.all(fullDataPlanet);
+				// setStore({ planets: finalDataPlanet });
+				setStore({ planets: data });
 			},
 			loadCharacters: async () => {
-				const url = "https://www.swapi.tech/api/people/";
+				const url = "https://3000-gray-cattle-bu6ry8c3.ws-us03.gitpod.io/people/";
 				const response = await fetch(url, {
 					method: "GET",
 					headers: {
@@ -54,17 +55,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				const data = await response.json();
 
-				const fullDataCharacter = data.results.map(async (item, index, myArry) => {
-					let allCharacterData = await fetch(item.url, {
-						method: "GET",
-						headers: {
-							"Content-Type": "application/json"
-						}
-					});
-					return allCharacterData.json();
-				});
-				let finalDataCharacter = await Promise.all(fullDataCharacter);
-				setStore({ characters: finalDataCharacter });
+				// const fullDataCharacter = data.results.map(async (item, index, myArry) => {
+				// 	let allCharacterData = await fetch(item.url, {
+				// 		method: "GET",
+				// 		headers: {
+				// 			"Content-Type": "application/json"
+				// 		}
+				// 	});
+				// 	return allCharacterData.json();
+				// });
+				// let finalDataCharacter = await Promise.all(fullDataCharacter);
+				// setStore({ characters: finalDataCharacter });
+				setStore({ characters: data });
 			},
 			changeColor: (index, color) => {
 				//get the store
