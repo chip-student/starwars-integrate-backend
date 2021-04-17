@@ -7,8 +7,6 @@ import { PlanetProfile } from "./views/PlanetProfile";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
-import { Login } from "./views/login";
-import { Register } from "./views/register";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -30,12 +28,6 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
-						{/* <Route exact path="/">
-							<Login />
-						</Route> */}
-						{/* <Route exact path="register">
-							<Register />
-						</Route> */}
 						<Route exact path="/">
 							<Home />
 						</Route>
